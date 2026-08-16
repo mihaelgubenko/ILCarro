@@ -2,6 +2,7 @@ from selenium.webdriver.common.by import By
 
 
 class LoginPage:
+    URL = "https://icarro-v1.netlify.app/login"
     EMAIL_INPUT = (By.CSS_SELECTOR, "input[name='username']")
     PASSWORD_INPUT = (By.CSS_SELECTOR, "input[name='password']")
     Yalla_BTN = (By.XPATH, "//button[contains(text(),'Y’alla!')]")
@@ -9,6 +10,9 @@ class LoginPage:
 
     def __init__(self, driver):
         self.driver = driver
+
+    def open(self):
+        self.driver.get(self.URL)
 
     def open_login_form(self):
         self.driver.find_element(*self.LOGIN_NAV_LINK).click()
@@ -23,3 +27,6 @@ class LoginPage:
 
     def yalla_login(self):
         self.driver.find_element(*self.Yalla_BTN).click()
+
+
+
